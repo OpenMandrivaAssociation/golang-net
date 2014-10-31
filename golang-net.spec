@@ -6,7 +6,7 @@
 Summary:	Supplementary Go networking libraries
 Name:		golang-net
 Version:	0.1.git%{shortcommit}
-Release:	5
+Release:	6
 License:	BSD
 Group:		Development/Other
 Url:		http://net.go.googlecode.com
@@ -23,6 +23,7 @@ Provides:       golang(%{import_path}/publicsuffix) = %{version}-%{release}
 Provides:       golang(%{import_path}/spdy) = %{version}-%{release}
 Provides:       golang(%{import_path}/websocket) = %{version}-%{release}
 BuildArch:	noarch
+BuildRequires:	golang
 
 %description
 Supplementary Go networking libraries

@@ -1,13 +1,12 @@
 %define prerelease 84a4013f96e01fdd14b65d260a78b543e3702ee1
 %define import_path code.google.com/p/go.net
-%define gopath %{_libdir}/golang
-%define gosrc %{gopath}/src/pkg/%{import_path}
+%define gosrc %{go_dir}/src/pkg/%{import_path}
 %define shortcommit %(c=%{prerelease}; echo ${c:0:12})
 
 Summary:	Supplementary Go networking libraries
 Name:		golang-net
 Version:	0.1.git%{shortcommit}
-Release:	%mkrel 4
+Release:	5
 License:	BSD
 Group:		Development/Other
 Url:		http://net.go.googlecode.com

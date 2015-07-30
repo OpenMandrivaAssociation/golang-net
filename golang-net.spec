@@ -1,12 +1,13 @@
 %define prerelease 84a4013f96e01fdd14b65d260a78b543e3702ee1
 %define import_path code.google.com/p/go.net
-%define gosrc %{go_dir}/src/pkg/%{import_path}
+%define gopath %{_libdir}/golang
+%define gosrc %{gopath}/src/%{import_path}
 %define shortcommit %(c=%{prerelease}; echo ${c:0:12})
 
 Summary:	Supplementary Go networking libraries
 Name:		golang-net
 Version:	0.1.git%{shortcommit}
-Release:	8
+Release:	9
 License:	BSD
 Group:		Development/Other
 Url:		http://net.go.googlecode.com
@@ -22,18 +23,26 @@ Provides:       golang(%{import_path}/proxy) = %{version}-%{release}
 Provides:       golang(%{import_path}/publicsuffix) = %{version}-%{release}
 Provides:       golang(%{import_path}/spdy) = %{version}-%{release}
 Provides:       golang(%{import_path}/websocket) = %{version}-%{release}
-BuildArch:	noarch
-BuildRequires:	golang
+
+%package devel
+BuildRequires:  golang >= 1.3.3
+Requires:       golang >= 1.3.3
+Summary:        Supplementary Go networking libraries
+
+%description devel
+Supplementary Go networking libraries devel part
 
 %description
 Supplementary Go networking libraries
 
 %prep
 cd %{_builddir}
+rm -rf net.go-*
 unzip %{SOURCE0}
 
 %build
 cd %{_builddir}/net.go-%{shortcommit}
+#go build
 
 %install
 mkdir -p %{buildroot}%{gosrc}
@@ -45,6 +54,10 @@ rm -vf %{buildroot}%{gosrc}/CONTRIBUTORS
 rm -vf %{buildroot}%{gosrc}/PATENTS
 
 %files
+%doc net.go-%{shortcommit}/README
+%doc net.go-%{shortcommit}/LICENSE
+
+%files devel
 %doc net.go-%{shortcommit}/LICENSE
 %doc net.go-%{shortcommit}/README
 %doc net.go-%{shortcommit}/AUTHORS

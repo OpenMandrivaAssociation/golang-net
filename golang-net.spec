@@ -7,7 +7,7 @@
 Summary:	Supplementary Go networking libraries
 Name:		golang-net
 Version:	0.1.git%{shortcommit}
-Release:	10
+Release:	11
 License:	BSD
 Group:		Development/Other
 Url:		http://net.go.googlecode.com

@@ -10,7 +10,7 @@ Version:	0.1.git%{shortcommit}
 Release:	12
 License:	BSD
 Group:		Development/Other
-Url:		http://net.go.googlecode.com
+Url:		https://net.go.googlecode.com
 Source0:	http://net.go.googlecode.com/archive/%{prerelease}.zip
 Provides:       golang(%{import_path}) = %{version}-%{release}
 Provides:       golang(%{import_path}/dict) = %{version}-%{release}
